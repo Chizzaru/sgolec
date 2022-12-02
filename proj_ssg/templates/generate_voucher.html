@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}  
+{% load static %}
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h4>Generate Vouchers</h4>
+        </div>
+
+        <form action="{% url 'generate_voucher_view' %}" method="post">
+          <!--<img class="mb-4" src="{% static 'img/sg_olec_logo.png' %}" alt="" width="120" height="125">-->
+          <!--<h1 class="h3 mb-3 fw-normal text-uppercase text-white">SSG-Online Election</h1>-->
+          {% include 'messages.html' %}
+          {% csrf_token %}
+          {{ form.non_field_errors }}
+          <div class="form-floating">
+              {{ form.voucher_key.errors }}
+              {{ form.voucher_key }}
+              <label for="floatingInput">Voucher Key</label>
+          </div>
+          <div class="form-floating">
+              {{ form.voucher_count.errors }}
+              {{ form.voucher_count }}
+              <label for="floatingPassword">Voucher Count</label>
+          </div>
+        <!--
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>-->
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Generate</button>
+      </form>
+        </main>
+    </div>
+  </div>
+  
+{% endblock content %}

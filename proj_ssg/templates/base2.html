@@ -1,0 +1,200 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <title>SG-OLEC</title>
+
+</head>
+<body>
+
+    {% block content %}
+    {% endblock content %}
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!--<script src="{% static 'js/dashboard.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"></script>-->
+    <script>
+        /* checkboxpres*/
+        function selectiveCheckPres (event) {
+            var checkedChecks = document.querySelectorAll(".checkboxpres:checked");
+                if (checkedChecks.length >= max + 1)
+                    return false;
+        }
+
+        var checks = document.querySelectorAll(".checkboxpres");
+        var max = 1;
+        for (var i = 0; i < checks.length; i++)
+        checks[i].onclick = selectiveCheckPres;
+        function selectiveCheckPres (event) {
+        var checkedChecks = document.querySelectorAll(".checkboxpres:checked");
+        if (checkedChecks.length >= max + 1)
+            return false;
+        }
+
+       
+        /* checkboxivpres*/
+        function selectiveCheckIVPres (event) {
+            var checkedChecks = document.querySelectorAll(".checkboxivpres:checked");
+                if (checkedChecks.length >= max + 1)
+                    return false;
+        }
+
+        var checks = document.querySelectorAll(".checkboxivpres");
+        var max = 1;
+        for (var i = 0; i < checks.length; i++)
+        checks[i].onclick = selectiveCheckIVPres;
+        function selectiveCheckIVPres (event) {
+        var checkedChecks = document.querySelectorAll(".checkboxivpres:checked");
+        if (checkedChecks.length >= max + 1)
+            return false;
+        }
+
+        /* checkboxevpres*/
+        function selectiveCheckEVPres (event) {
+            var checkedChecks = document.querySelectorAll(".checkboxevpres:checked");
+                if (checkedChecks.length >= max + 1)
+                    return false;
+        }
+
+        var checks = document.querySelectorAll(".checkboxevpres");
+        var max = 1;
+        for (var i = 0; i < checks.length; i++)
+        checks[i].onclick = selectiveCheckEVPres;
+        function selectiveCheckEVPres (event) {
+        var checkedChecks = document.querySelectorAll(".checkboxevpres:checked");
+        if (checkedChecks.length >= max + 1)
+            return false;
+        }
+
+        /* checkboxisec*/
+        function selectiveCheckISec (event) {
+            var checkedChecks = document.querySelectorAll(".checkboxisec:checked");
+                if (checkedChecks.length >= max + 1)
+                    return false;
+        }
+
+        var checks = document.querySelectorAll(".checkboxisec");
+        var max = 1;
+        for (var i = 0; i < checks.length; i++)
+        checks[i].onclick = selectiveCheckISec;
+        function selectiveCheckISec (event) {
+        var checkedChecks = document.querySelectorAll(".checkboxisec:checked");
+        if (checkedChecks.length >= max + 1)
+            return false;
+        }
+
+        /* checkboxesec*/
+        function selectiveCheckESec (event) {
+            var checkedChecks = document.querySelectorAll(".checkboxesec:checked");
+                if (checkedChecks.length >= max + 1)
+                    return false;
+        }
+
+        var checks = document.querySelectorAll(".checkboxesec");
+        var max = 1;
+        for (var i = 0; i < checks.length; i++)
+        checks[i].onclick = selectiveCheckESec;
+        function selectiveCheckESec (event) {
+        var checkedChecks = document.querySelectorAll(".checkboxesec:checked");
+        if (checkedChecks.length >= max + 1)
+            return false;
+        }        
+                
+        /* checkboxpio*/
+        function selectiveCheckPIO (event) {
+            var checkedChecks = document.querySelectorAll(".checkboxpio:checked");
+                if (checkedChecks.length >= max + 1)
+                    return false;
+        }
+
+        var checks = document.querySelectorAll(".checkboxpio");
+        var max = 1;
+        for (var i = 0; i < checks.length; i++)
+        checks[i].onclick = selectiveCheckPIO;
+        function selectiveCheckPIO (event) {
+        var checkedChecks = document.querySelectorAll(".checkboxpio:checked");
+        if (checkedChecks.length >= max + 1)
+            return false;
+        }       
+        
+
+        /* checkboxaud*/
+        function selectiveCheckAud (event) {
+            var checkedChecks = document.querySelectorAll(".checkboxaud:checked");
+                if (checkedChecks.length >= max + 1)
+                    return false;
+        }
+
+        var checks = document.querySelectorAll(".checkboxaud");
+        var max = 1;
+        for (var i = 0; i < checks.length; i++)
+        checks[i].onclick = selectiveCheckAud;
+        function selectiveCheckAud (event) {
+        var checkedChecks = document.querySelectorAll(".checkboxaud:checked");
+        if (checkedChecks.length >= max + 1)
+            return false;
+        }
+
+
+        /* checkboxbuss*/
+        function selectiveCheckBuss (event) {
+            var checkedChecks = document.querySelectorAll(".checkboxbuss:checked");
+                if (checkedChecks.length >= max + 1)
+                    return false;
+        }
+
+        var checks = document.querySelectorAll(".checkboxbuss");
+        var max = 1;
+        for (var i = 0; i < checks.length; i++)
+        checks[i].onclick = selectiveCheckBuss;
+        function selectiveCheckBuss(event) {
+        var checkedChecks = document.querySelectorAll(".checkboxbuss:checked");
+        if (checkedChecks.length >= max + 1)
+            return false;
+        }
+
+
+        /* checkboxtreas*/
+        function selectiveCheckTreas (event) {
+            var checkedChecks = document.querySelectorAll(".checkboxtreas:checked");
+                if (checkedChecks.length >= max + 1)
+                    return false;
+        }
+
+        var checks = document.querySelectorAll(".checkboxtreas");
+        var max = 1;
+        for (var i = 0; i < checks.length; i++)
+        checks[i].onclick = selectiveCheckTreas;
+        function selectiveCheckTreas(event) {
+        var checkedChecks = document.querySelectorAll(".checkboxtreas:checked");
+        if (checkedChecks.length >= max + 1)
+            return false;
+        }
+
+
+        /* checkboxtrep*/
+        function selectiveCheckRep (event) {
+            var checkedChecks = document.querySelectorAll(".checkboxrep:checked");
+                if (checkedChecks.length >= max + 1)
+                    return false;
+        }
+
+        var checks = document.querySelectorAll(".checkboxrep");
+        var max = 3;
+        for (var i = 0; i < checks.length; i++)
+        checks[i].onclick = selectiveCheckRep;
+        function selectiveCheckRep(event) {
+        var checkedChecks = document.querySelectorAll(".checkboxrep:checked");
+        if (checkedChecks.length >= max + 1)
+            return false;
+        }        
+        
+
+
+    </script>
+</body>
+</html>

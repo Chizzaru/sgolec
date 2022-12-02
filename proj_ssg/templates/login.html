@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>DassApp - Login</title>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-image: url('{% static "img/Background.jpg" %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            }
+    </style>
+</head>
+<body class="text-center">
+        <main class="form-signin w-100 m-auto">
+            <form action="{% url 'login_view' %}" method="post">
+                <img class="mb-4" src="{% static 'img/sg_olec_logo.png' %}" alt="" width="120" height="125">
+                <!--<h1 class="h3 mb-3 fw-normal text-uppercase text-white">SSG-Online Election</h1>-->
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="form-floating">
+                    {{ form.username.errors }}
+                    {{ form.username }}
+                    <label for="floatingInput">Username</label>
+                </div>
+                <div class="form-floating">
+                    {{ form.password.errors }}
+                    {{ form.password }}
+                    <label for="floatingPassword">Password</label>
+                </div>
+              <!--
+              <div class="checkbox mb-3">
+                <label>
+                  <input type="checkbox" value="remember-me"> Remember me
+                </label>
+              </div>-->
+              <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+            </form>
+            <p class="mt-5 mb-3 text-muted">&copy; 2022 - Silay Institute Inc.</p>
+            <!--<a href="#">Register Now</a>-->
+          </main>
+    
+</body> 
+</html>

@@ -1,0 +1,41 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+{% load static %}
+<div class="container">
+    <div>
+    <form method="post" action="ef.">
+        {% for x in arrCategory %}
+        <h1 class="text-muted text-center text-uppercase" style="margin-top:20px">{{x.category_name}}</h1>
+        <hr>
+        <div class="row" style="margin-bottom:50px;">
+            {% for y in arrCandidate %}
+                {% if x.id == y.category_id %}
+                    <div class="col-md-3" style="margin-bottom:10px;">
+                        <div class="card">
+                            <img src="{% static 'img/user.png' %}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ y.candidate_name }}</h5>
+                                <p class="card-text">{{ y.brief_self_intro }}</p>
+                                <label><input type="checkbox" name="checkbox" value="{{x.id}}/{{ y.id }}" class="{{x.checkboxclass}}"> Vote</label>
+                                <!--<a href="#" class="btn btn-primary form-control">Vote</a>-->
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endfor %}
+        <div class="row">
+            <div class="col-md-6">
+                <label for="">Please enter your Vote Voucher to make your vote valid.</label>
+                <input type="text" name="votevoucher" id="" class="form-control" placeholder="Vote Voucher">
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-success">Submit</button>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>
+{% endblock content %}
