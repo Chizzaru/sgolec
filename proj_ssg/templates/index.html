@@ -2,6 +2,8 @@
 
 {% block content %}
 {% load static %}
+<div id="banner" style="background-image: url({% static 'img/banner.jpg' %})">
+</div>
 <div class="container">
     <div>
     <form method="post" action="ef.">
@@ -11,9 +13,9 @@
         <div class="row" style="margin-bottom:50px;">
             {% for y in arrCandidate %}
                 {% if x.id == y.category_id %}
-                    <div class="col-md-3" style="margin-bottom:10px;">
+                    <div class="col-md-3 cont" style="margin-bottom:10px;">
                         <div class="card">
-                            <img src="{% static 'img/user.png' %}" class="card-img-top" alt="...">
+                            <img src="{% static 'img/usericon.png' %}" class="card-img-top" style="padding:10px;">
                             <div class="card-body">
                                 <h5 class="card-title">{{ y.candidate_name }}</h5>
                                 <p class="card-text">{{ y.brief_self_intro }}</p>

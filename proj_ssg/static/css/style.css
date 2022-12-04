@@ -36,3 +36,30 @@ body {
 .errorlist > li {
   margin-left: 0px;
 }
+
+#banner {
+  display: flex;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 200px;
+}
+
+.banner-header {
+  flex: 2;
+  text-align : center;
+  align-items: center;
+}
+
+.cont {
+  transition: all .2s ease-in-out; 
+}
+
+.cont:hover {
+  transform: scale(1.1); 
+}
+
+@media only screen and (max-width: 768px) {
+  #banner {
+    height: 80px;
+  }
+}
