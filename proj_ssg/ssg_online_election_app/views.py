@@ -23,9 +23,28 @@ def index_view(request):
     }
     return HttpResponse(template.render(context, request))
 
+
+def save_vote(request):
+    if request.POST:
+        pres = request.POST['checkboxpres']
+        ivpres = request.POST['checkboxivpres']
+        evpres = request.POST['checkboxevpres']
+        isec = request.POST['checkboxisec']
+        esec = request.POST['checkboxesec']
+        pio = request.POST['checkboxpio']
+        aud = request.POST['checkboxaud']
+        bus = request.POST['checkboxbus']
+        treas = request.POST['checkboxtreas']
+        rep = request.POST['checkboxrep']
+        voucher = request.POST['votevoucher']
+        return HttpResponse("helll " + str(pres))
+
+
 @login_required(login_url='login_view')
 def dashboard_view(request):
     return render(request, "dashboard.html")
+
+
 
 @login_required(login_url='login_view')
 def generate_voucher_view(request):
