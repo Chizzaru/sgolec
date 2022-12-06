@@ -1,0 +1,12 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="container">
+
+    <div class="alert alert-dismissible alert-{{ message_type }}">
+        <strong>{{ message }}.</strong> <a href="{% url 'index_view' %}">Go back</a>
+      </div>
+</div>
+{% endblock content %}

@@ -17,7 +17,7 @@
               {{ form.voucher_key.errors }}
               {{ form.voucher_key }}
               <label for="floatingInput">Voucher Key</label>
-          </div>
+          </div><br>
           <div class="form-floating">
               {{ form.voucher_count.errors }}
               {{ form.voucher_count }}
@@ -29,7 +29,10 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>-->
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Generate</button>
+        <br>
+        <button class="w-100 btn btn-primary" type="submit">Generate</button>
+        <br><br>
+        <a href="{% url 'export_page' %}" class="w-100 btn btn-success" type="submit">Download List of Vouchers</a>
       </form>
         </main>
     </div>

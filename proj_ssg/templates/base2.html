@@ -14,6 +14,113 @@
 
     {% block content %}
     {% endblock content %}
+
+<!-- Footer -->
+<br><br>
+<footer class="bg-light ">
+    <!-- Grid container -->
+    <div class="container p-4">
+  
+
+  
+        
+      <!-- Section: Text -->
+      <section class="mb-4">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
+          distinctio earum repellat quaerat voluptatibus placeat nam,
+          commodi optio pariatur est quia magnam eum harum corrupti dicta,
+          aliquam sequi voluptate quas.
+        </p>
+      </section>
+      <!-- Section: Text -->
+  
+  
+      <!-- Section: Links -->
+      <section class="">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-lg-6 col-md-6 mb-4 mb-md-0 text-center">
+            <h5 class="text-uppercase">Visit Us</h5>
+  
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="https://www.silayinstitute.edu.ph/" class="text-dark">www.silayinstitute.edu.ph</a>
+              </li>
+          </div>
+          <!--Grid column-->
+  
+          <!--Grid column-->
+          <div class="col-lg-6 col-md-6 mb-4 mb-md-0 text-center">
+            <h5 class="text-uppercase">Administrator</h5>
+  
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="http://127.0.0.1:8000/ssg_online_election_app/login/" class="text-dark">Administrator Page</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+  
+          <!--Grid column
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Links</h5>
+  
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="#!" class="text-dark">Link 1</a>
+              </li>
+              <li>
+                <a href="#!" class="text-dark">Link 2</a>
+              </li>
+              <li>
+                <a href="#!" class="text-dark">Link 3</a>
+              </li>
+              <li>
+                <a href="#!" class="text-dark">Link 4</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Links</h5>
+  
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="#!" class="text-dark">Link 1</a>
+              </li>
+              <li>
+                <a href="#!" class="text-dark">Link 2</a>
+              </li>
+              <li>
+                <a href="#!" class="text-dark">Link 3</a>
+              </li>
+              <li>
+                <a href="#!" class="text-dark">Link 4</a>
+              </li>
+            </ul>
+          </div>
+          -->
+        </div>
+        <!--Grid row-->
+      </section>
+      <!-- Section: Links -->
+  
+    </div>
+    <!-- Grid container -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      © 2022 Copyright:
+      <a class="text-dark" href="#">SSG Online Election App</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->    
+
+
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <!--<script src="{% static 'js/dashboard.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"></script>-->
@@ -42,6 +149,15 @@
                 }
             }
         });
+
+        var rep = document.getElementsByClassName('checkboxrep');
+        for (var ii = 0; ii < rep.length;ii++){
+          rep[ii].onclick = () => {
+            if(checkcount('checkboxrep') > 3){
+              return false;
+            }
+          }
+        }
 
         function checkcount(cls){
             var cbox = document.querySelectorAll('.' + cls + ':checked');

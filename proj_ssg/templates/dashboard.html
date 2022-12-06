@@ -9,7 +9,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="card">
-              <h1 class="text-center" style="margin-top:10px;">100</h1>
+              <h1 class="text-center" style="margin-top:10px;">{{ voucher_update.used }}</h1>
               <div class="card-body">
                 <p class="card-text text-center">Used Voucher</p>
               </div>
@@ -17,7 +17,7 @@
           </div>
           <div class="col-md-4">
             <div class="card">
-              <h1 class="text-center" style="margin-top:10px;">87</h1>
+              <h1 class="text-center" style="margin-top:10px;">{{ voucher_update.unused }}</h1>
               <div class="card-body">
                 <p class="card-text text-center">Unused Voucher</p>
               </div>
@@ -25,13 +25,31 @@
           </div>
           <div class="col-md-4">
             <div class="card">
-              <h1 class="text-center" style="margin-top:10px;">100</h1>
+              <h1 class="text-center" style="margin-top:10px;">{{ voucher_update.total }}</h1>
               <div class="card-body">
                 <p class="card-text text-center">Total Voucher</p>
               </div>
             </div>
           </div>
         </div>
+        <hr>
+        <h4>Majority Candidates (Boyer-Moore Majority Voting Algorithm)</h4>
+        <ul class="list-group list-group-light">
+
+          <li class="list-group-item disabled" aria-disabled="true"><strong>President : </strong>{{ candidates.0 }}</li>
+          <li class="list-group-item disabled" aria-disabled="true"><strong>Internal - Vice President : </strong>{{ candidates.1 }}</li>
+          <li class="list-group-item disabled" aria-disabled="true"><strong>External - Vice President : </strong>{{ candidates.2 }}</li>
+          <li class="list-group-item disabled" aria-disabled="true"><strong>Internal Secretary : </strong>{{ candidates.3 }}</li>
+          <li class="list-group-item disabled" aria-disabled="true"><strong>External Secretary : </strong>{{ candidates.4 }}</li>
+          <li class="list-group-item disabled" aria-disabled="true"><strong>PIO : </strong>{{ candidates.5 }}</li>
+          <li class="list-group-item disabled" aria-disabled="true"><strong>Auditor : </strong>{{ candidates.6 }}</li>
+          <li class="list-group-item disabled" aria-disabled="true"><strong>Business Manager : </strong>{{ candidates.7 }}</li>
+          <li class="list-group-item disabled" aria-disabled="true"><strong>Treasurer : </strong>{{ candidates.8 }}</li>
+          <li class="list-group-item disabled" aria-disabled="true"><strong>Representatives : </strong></li>
+          <li class="list-group-item disabled" aria-disabled="true"><strong>(1) </strong>{{ candidates.9 }}</li>
+          <li class="list-group-item disabled" aria-disabled="true"><strong>(2) </strong>{{ candidates.10 }}</li>
+          <li class="list-group-item disabled" aria-disabled="true"><strong>(3) </strong>{{ candidates.11 }}</li>
+        </ul><br>
         </main>
     </div>
   </div>

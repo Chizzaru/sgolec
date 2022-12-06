@@ -6,13 +6,13 @@ class GenerateVoucherForm(forms.Form):
     voucher_key = forms.CharField(
         label="Voucher-Key-String", 
         max_length=100,
-        widget=forms.TextInput(attrs={'class':'form-control'})
+        widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Enter your voucher key'})
         )
 
     voucher_count = forms.CharField(
         label="How many voucher?", 
         max_length=5,
-        widget=forms.NumberInput(attrs={'class':'form-control','maxlength':'11'})
+        widget=forms.NumberInput(attrs={'class':'form-control','maxlength':'11','placeholder':'Number of voucher to be generated'})
         )
     
 

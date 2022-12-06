@@ -67,7 +67,6 @@ class VoteVoucher(models.Model):
 #Vote Class Model
 class Vote(models.Model):
     vote_voucher = models.ForeignKey(VoteVoucher,on_delete=models.CASCADE)
-    vote_by = models.ForeignKey(User,on_delete=models.CASCADE,)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     candidate = models.ForeignKey(Candidate, on_delete=models.CASCADE)
     date_voted = models.DateTimeField(auto_now_add=True, blank=True)
