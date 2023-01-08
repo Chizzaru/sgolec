@@ -63,3 +63,61 @@ body {
     height: 80px;
   }
 }
+
+
+.wrapper {
+  height: 200px;
+  width: 200px;
+  position: relative;
+  border : 2px solid whitesmoke;
+  border-radius: 50%;
+  overflow: hidden;
+ 
+}
+
+.my_file {
+  position: absolute;
+  bottom: 0;
+  outline: none;
+  color: transparent;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px 73px;
+  cursor: pointer;
+  transition: 0.5s;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+}
+
+.my_file::-webkit-file-upload-button{
+  visibility: hidden;
+}
+
+.my_file::before{
+  content: '\f030';
+  font-family: fontAwesome;
+  font-size: 50px;
+  color : white;
+  display: inline-block;
+}
+
+.my_file::after {
+  content: 'Update';
+  font-weight: bold;
+  color : white;
+  display: block;
+  top: 70px;
+  font-size: 14px;
+  position: absolute;
+}
+
+.my_file:hover {
+  opacity: 1;
+}
+
+#mybanner {
+  color: whitesmoke;
+  padding-bottom : 30px;
+  padding-top : 30px;
+  background: rgba(36, 79, 110, 0.5);
+}

@@ -43,12 +43,12 @@ class Category(models.Model):
 
 #Candidate Class Model
 class Candidate(models.Model):
-    category = models.ForeignKey(Category,on_delete=models.CASCADE)
+    category = models.ForeignKey(Category,on_delete=models.CASCADE, related_name="categories")
     candidate_name = models.CharField(max_length=150,unique=True)
     address = models.CharField(max_length=200)
     year_and_section = models.CharField(max_length=50)
     brief_self_intro = models.TextField(max_length=250)
-    img_path = models.CharField(max_length=250)
+    img_path = models.ImageField(upload_to='proj_ssg/files/profiles')
 
     def __str__(self):
         return self.candidate_name

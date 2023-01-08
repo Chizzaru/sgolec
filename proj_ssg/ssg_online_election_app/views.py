@@ -1,4 +1,5 @@
 import io
+import os
 import xlsxwriter
 from django.db import IntegrityError
 from django.shortcuts import render, redirect
@@ -12,7 +13,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .generator import runGeneration
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import LoginForm, GenerateVoucherForm
+from .forms import LoginForm, GenerateVoucherForm, UploadImageForm
 
 
 #algorithm
@@ -28,6 +29,32 @@ def index_view(request):
         'arrCandidate' : arrCandidate
     }
     return HttpResponse(template.render(context, request))
+
+
+def candidates_view(request):
+    template = loader.get_template('candidates.html')
+    context = {}
+    data = []
+    candidates = Candidate.objects.all().values().order_by('category_id')
+
+    for x in candidates:
+        f = {
+            'id' : x['id'],
+            'candidate_name' : x['candidate_name'],
+            'category' : Category.objects.get(id = x['category_id']).category_name,
+            'address' : x['address'],
+            'yrsec' : x['year_and_section'],
+            'self_intro' : x['brief_self_intro'],
+            'img_path' : x['img_path']
+        }
+
+        data.append(f)
+    
+    context = {
+        'data' : data
+    }
+
+    return HttpResponse(template.render(context,request))
 
 
 def save_vote(request):
@@ -243,5 +270,32 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse('login_view'))
+
+
+def updatepic_view(request):
+
+    if request.method == 'POST':
+        form = UploadImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            image = Candidate.objects.get(id = request.POST['id'])
+            
+            # delete old image
+            try:
+                profile = Candidate.objects.get(id = request.POST['id']).img_path
+            except Candidate.DoesNotExist:
+                return False
+
+            new_file = request.FILES['img_path']
+            if not profile == new_file:
+                if os.path.isfile(profile.path):
+                    os.remove(profile.path)
+
+            image.id = request.POST['id']
+            image.img_path = request.FILES['img_path']
+            image.save()
+
+
+    return HttpResponseRedirect(reverse('candidates_view'))
+    #return HttpResponse(template.render(context,request))
 
 

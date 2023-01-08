@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth import authenticate
 
+from .models import Candidate
+
 class GenerateVoucherForm(forms.Form):
 
     voucher_key = forms.CharField(
@@ -43,14 +45,7 @@ class LoginForm(forms.Form):
         user = authenticate(student_id=username, password=password)
         return user   
     
-    '''voucher_key = forms.CharField(
-        label="Voucher-Key-String", 
-        max_length=100,
-        widget=forms.TextInput(attrs={'class':'form-control'})
-        )
 
-    voucher_count = forms.CharField(
-        label="How many voucher?", 
-        max_length=5,
-        widget=forms.NumberInput(attrs={'class':'form-control'})
-        )'''
+class UploadImageForm(forms.Form):
+    model = Candidate
+    fields = ('id','category','candidate_name','address','year_and_section','brief_self_intro','img_path')

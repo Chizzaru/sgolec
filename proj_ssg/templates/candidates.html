@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}  
+{% load static %}
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h4>Candidates</h4>
+        </div>
+
+        <ol class="list-group">
+            {% for x in data %}
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="wrapper" style="background: url('/ssg_online_election_app/{{ x.img_path }}');background-size: 100% 100%;">
+                            <form id="{{x.id}}updateform" action="{% url 'updatepic_view' %}" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <input type="hidden" name="id" value="{{ x.id }}">
+                                <input type="file" name="img_path" id="{{x.id}}" class="my_file" accept="image/*">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">{{ x.candidate_name }}</div>
+                            <div>Category : {{ x.category }}</div>
+                            <div>Year and Section : {{ x.yrsec }}</div>
+                            <div>Address : {{ x.address }}</div>
+                            <div>Self-intro : {{ x.self_intro }}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <span type="button" class="fa-solid fa-pen-to-square" style="color: blue;"></span>
+                        <span type="button" class="fa-solid fa-trash" style="color: red;"></span>
+                    </div>
+                    
+                </div>
+            </li>
+            {% endfor %}
+        </ol>
+        
+    </main>
+</div>
+</div>
+  
+{% endblock content %}

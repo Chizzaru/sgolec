@@ -2,21 +2,25 @@
 
 {% block content %}
 {% load static %}
-<div id="banner" style="background-image: url({% static 'img/banner.jpg' %})">
+<div class="container-fluid text-center" id="mybanner">
+    <h1>SG-OLEC</h1>
+    <p>Direction : Please select the candidate to vote using checkbox. Then to submit, please enter
+        the vote voucher then click submit button.
+    </p>
 </div>
 <div class="container">
     <div>
     <form method="post" action="{% url 'save_vote' %}">
         {% csrf_token %}
         {% for x in arrCategory %}
-        <h1 class="text-muted text-center text-uppercase" style="margin-top:20px">{{x.category_name}}</h1>
+        <h4 class="text-muted text-center text-uppercase" style="margin-top:20px">{{x.category_name}}</h4>
         <hr>
         <div class="row" style="margin-bottom:50px;">
             {% for y in arrCandidate %}
                 {% if x.id == y.category_id %}
                     <div class="col-md-3 cont" style="margin-bottom:10px;">
                         <div class="card">
-                            <img src="{% static 'img/usericon.png' %}" class="card-img-top" style="padding:10px;">
+                            <img src="/ssg_online_election_app/{{y.img_path}}" alt="NO IMAGE UPLOADED" class="card-img-top" style="padding:10px;">
                             <div class="card-body">
                                 <h5 class="card-title">{{ y.candidate_name }}</h5>
                                 <p class="card-text">{{ y.brief_self_intro }}</p>
