@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate
 
 from .models import Candidate
 
+
 class GenerateVoucherForm(forms.Form):
 
     voucher_key = forms.CharField(
@@ -49,3 +50,24 @@ class LoginForm(forms.Form):
 class UploadImageForm(forms.Form):
     model = Candidate
     fields = ('id','category','candidate_name','address','year_and_section','brief_self_intro','img_path')
+
+
+
+
+class CandidateForm(forms.ModelForm):
+
+    class Meta:
+        model = Candidate
+        fields = ['id','category','candidate_name','address','year_and_section','brief_self_intro','img_path']
+
+    '''def clean(self):
+        cleaned_data = super(CandidateForm, self).clean()
+        id = self.cleaned_data.get('id')
+        category = self.cleaned_data.get('category')
+        candidate_name = self.cleaned_data.get('candidate_name')
+        address = self.cleaned_data.get('address')
+        year_and_section = self.cleaned_data.get('year_and_section')
+        brief_self_intro = self.cleaned_data.get('brief_self_intro')
+        img_path = self.cleaned_data.get('img_path')
+
+        return self.cleaned_data'''

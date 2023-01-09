@@ -58,13 +58,6 @@
                     Candidates
                   </a>
                 </li>
-
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span data-feather="file-text" class="align-text-bottom"></span>
-                    Category
-                  </a>
-                </li>
               </ul>
             </div>
           </nav>
@@ -83,6 +76,49 @@
         const form = document.getElementById(btnAttribID + 'updateform')
         form.submit();
       })
+
+      const addbtn = document.getElementById('addbtn')
+
+      const myModal = new bootstrap.Modal(document.getElementById('modal'), {
+        keyboard: true
+      })
+  
+      addbtn.addEventListener('click', ()=> {
+        const modaltitle = document.querySelector('.modal-title')
+        const submitbtn = document.getElementById('submitbtn')
+        modaltitle.innerHTML = 'Add Candidate'
+        submitbtn.innerHTML = 'Save'
+        myModal.show()
+      })
+
+      const closemodalbuttons = document.querySelectorAll('.close')
+      closemodalbuttons.forEach(closemodalbutton => {
+        closemodalbutton.addEventListener('click',() => {
+          myModal.hide()
+        })
+      })
+
+
+      const textarea = document.getElementById('textarea')
+      const charlen = document.getElementById('charlen')
+
+      textarea.addEventListener('input', (event) => {
+        const limit = 250
+        const input = event.target.value.length
+
+        if(input > limit){
+          textarea.setAttribute('style','border:3px solid red;box-shadow: 0 0 10px #719ECE;outline:none !important;')
+          document.getElementById('submitbtn').disabled = true
+
+        }else{
+          textarea.removeAttribute('style')
+          document.getElementById('submitbtn').disabled = false
+          charlen.innerHTML = input + '/' + limit
+        }
+        
+
+      });
+
     </script>
 
   </body>

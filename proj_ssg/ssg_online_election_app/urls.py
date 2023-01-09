@@ -15,6 +15,8 @@ urlpatterns = [
     path('generate_voucher/',views.generate_voucher_view, name="generate_voucher_view"),
     path('candidates/',views.candidates_view, name="candidates_view"),
     path('updatepic/',views.updatepic_view, name="updatepic_view"),
+    path('add/',views.addCandidate, name="addCandidate"),
+    
 ]
 
 
