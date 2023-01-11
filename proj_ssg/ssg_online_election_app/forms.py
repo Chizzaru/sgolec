@@ -60,6 +60,11 @@ class CandidateForm(forms.ModelForm):
         model = Candidate
         fields = ['id','category','candidate_name','address','year_and_section','brief_self_intro','img_path']
 
+
+class UpdateCandidateForm(forms.Form):
+    model = Candidate
+    fields = ('id','category','candidate_name','address','year_and_section','brief_self_intro')     
+
     '''def clean(self):
         cleaned_data = super(CandidateForm, self).clean()
         id = self.cleaned_data.get('id')

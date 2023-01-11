@@ -99,8 +99,8 @@
       })
 
 
-      const textarea = document.getElementById('textarea')
-      const charlen = document.getElementById('charlen')
+      const textarea = document.querySelector('.textarea')
+      const charlen = document.querySelector('.charlen')
 
       textarea.addEventListener('input', (event) => {
         const limit = 250
@@ -119,7 +119,52 @@
 
       });
 
+
+      // for update modal
+      const updatebuttons = document.querySelectorAll('.updatebutton')
+
+      updatebuttons.forEach(updatebutton => updatebutton.addEventListener('click', () => {
+        const modal =  new bootstrap.Modal(document.getElementById('updatemodal'), {
+          keyboard: true
+        })
+
+        const updatebuttonID = updatebutton.getAttribute('id')
+        const arr = updatebuttonID.split("_")
+        const divParent = arr[1]
+
+        //document.getElementById("td1").getElementsByTagName('div')[0].innerHTML
+        const candidateid = document.getElementById(divParent).getElementsByTagName('input')[0].value
+        const candidatename = document.getElementById(divParent).getElementsByTagName('input')[1].value
+        const categoryid = document.getElementById(divParent).getElementsByTagName('input')[2].value
+        const category = document.getElementById(divParent).getElementsByTagName('input')[3].value
+        const yrandsec = document.getElementById(divParent).getElementsByTagName('input')[4].value
+        const address = document.getElementById(divParent).getElementsByTagName('input')[5].value
+        const intro = document.getElementById(divParent).getElementsByTagName('input')[6].value
+
+        const editCateg = document.getElementById('editCateg')
+        editCateg.value = categoryid
+
+        document.querySelector('.id').value = candidateid
+        document.querySelector('.name').value = candidatename
+        document.querySelector('.address').value = address
+        document.querySelector('.yrsec').value = yrandsec
+        document.querySelector('.intro').innerHTML = intro
+
+
+
+        console.log(candidatename)
+        console.log(categoryid)
+        console.log()
+
+        modal.show()
+
+
+      }))
+
+
     </script>
+    
+
 
   </body>
 </html>

@@ -13,7 +13,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .generator import runGeneration
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import LoginForm, GenerateVoucherForm, UploadImageForm, CandidateForm
+from .forms import LoginForm, GenerateVoucherForm, UploadImageForm, CandidateForm, UpdateCandidateForm
 
 #algorithm
 from .algo import findMajority
@@ -45,7 +45,8 @@ def candidates_view(request):
             'address' : x['address'],
             'yrsec' : x['year_and_section'],
             'self_intro' : x['brief_self_intro'],
-            'img_path' : x['img_path']
+            'img_path' : x['img_path'],
+            'category_id' : Category.objects.get(id = x['category_id']).id,
         }
 
         data.append(f)
@@ -304,30 +305,6 @@ def addCandidate(request):
     if request.method == 'POST':
         form = CandidateForm(request.POST, request.FILES)
         if form.is_valid():
-            '''candidate_name = request.POST['candidate_name']
-            address = request.POST['address']
-            year_and_section = request.POST['year_and_section']
-            brief_self_intro = request.POST['brief_self_intro']
-            img_path = request.FILES['img_path']
-            category = request.POST['category']'''
-
-            '''candidate_name = form.cleaned_data['candidate_name']
-            address = form.cleaned_data['address']
-            year_and_section = form.cleaned_data['year_and_section']
-            brief_self_intro = form.cleaned_data['brief_self_intro']
-            img_path = form.cleaned_data['img_path']
-            category = form.cleaned_data['category']'''
-
-            
-            '''newRecord = Candidate(
-                category = category,
-                candidate_name = candidate_name,
-                address = address,
-                year_and_section = year_and_section,
-                brief_self_intro = brief_self_intro,
-                img_path = img_path
-            )'''
-
             form.save()
 
             return HttpResponseRedirect(reverse('candidates_view'))
@@ -336,5 +313,27 @@ def addCandidate(request):
         form = CandidateForm()
         
     return HttpResponseRedirect(reverse('candidates_view'))
+
+
+
+def updateCandidate(request):
+    if request.method == 'POST':
+
+
+        candidate = Candidate.objects.get(id = request.POST['id'])
+        f = Category.objects.get(id = request.POST['category'])
+        candidate.category = f
+        candidate.candidate_name = request.POST['candidate_name']
+        candidate.address = request.POST['address']
+        candidate.year_and_section = request.POST['year_and_section']
+        candidate.brief_self_intro = request.POST['brief_self_intro']
+        candidate.img_path = candidate.img_path
+        try:
+            candidate.save()
+        except :
+            print('error')
+
+        return HttpResponseRedirect(reverse('candidates_view'))
+
 
 
