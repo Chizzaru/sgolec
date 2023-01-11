@@ -170,7 +170,6 @@ def dashboard_view(request):
             #print('No Majority')
             candidates.append('< No majority candidate >')
     
-    #print(candidates)
 
     template = loader.get_template('dashboard.html')
     context = {
@@ -334,6 +333,43 @@ def updateCandidate(request):
             print('error')
 
         return HttpResponseRedirect(reverse('candidates_view'))
+
+
+def removeCandidate(request, id):
+    candidate = Candidate.objects.get(id = id)
+    candidate.delete()
+
+
+    context = {}
+    data = []
+    categs = Category.objects.all().values()
+    candidates = Candidate.objects.all().values().order_by('category_id')
+
+    for x in candidates:
+        f = {
+            'id' : x['id'],
+            'candidate_name' : x['candidate_name'],
+            'category' : Category.objects.get(id = x['category_id']).category_name,
+            'address' : x['address'],
+            'yrsec' : x['year_and_section'],
+            'self_intro' : x['brief_self_intro'],
+            'img_path' : x['img_path'],
+            'category_id' : Category.objects.get(id = x['category_id']).id,
+        }
+
+        data.append(f)
+    
+
+
+    message = "Record deleted."
+
+    context = {
+        'data' : data,
+        'categs' : categs,
+        'message' : message
+    }
+
+    return render(request, 'candidates.html',context)
 
 
 

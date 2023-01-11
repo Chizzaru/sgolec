@@ -8,6 +8,11 @@
         </div>
         <a id="addbtn" href="#" class="btn btn-success btn-sm"><span class="fa-solid fa-plus" style="color: white;"></span> Add Candidate</a>
         <br><br>
+        {% if message %}
+        <div class="alert alert-info" role="alert" id="alertmessage">
+            {{ message }}
+        </div>
+        {% endif %}
         <ol class="list-group">
             {% for x in data %}
             <li class="list-group-item justify-content-between align-items-start">
@@ -39,8 +44,8 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <a type="button" class="updatebutton btn btn-primary btn-sm" id="update_divid{{x.id}}"><span type="button" class="fa-solid fa-pen-to-square"></span> Update</a>
-                        <a type="button" class="removebutton btn btn-danger btn-sm"><span type="button" class="fa-solid fa-trash"></span> Remove</a>
+                        <a type="button" class="updatebutton btn btn-primary btn-sm" id="update_divid{{x.id}}"><span class="fa-solid fa-pen-to-square"></span> Update</a>
+                        <a class="removebutton btn btn-danger btn-sm" href="{% url 'removeCandidate' x.id %}"><span class="fa-solid fa-trash"></span> Remove</a>
                     </div>
                     
                 </div>

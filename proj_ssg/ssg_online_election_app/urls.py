@@ -17,6 +17,7 @@ urlpatterns = [
     path('updatepic/',views.updatepic_view, name="updatepic_view"),
     path('add/',views.addCandidate, name="addCandidate"),
     path('update/',views.updateCandidate, name="updateCandidate"),
+    path('remove/<str:id>/',views.removeCandidate, name="removeCandidate"),
     
 ]
 
